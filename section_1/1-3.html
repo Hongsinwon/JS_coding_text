@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1-3문제 - 연필 갯수</title>
+  </head>
+  <body>
+    <script>
+      /* 
+      연필 1다스는 12자루 입니다. 학생 1인당 연필을 1자루씩 나누어 준다고 할때
+      n명이 학생 수를 입력하면 필요한 연필의 다스수를 계산하는 프로그램을 작성하세요.
+      */
+      const pencil = (a) => {
+        let answer;
+        const doz = a / 12;
+
+        /*
+        Math.floor() :: 내림
+        Math.round() :: 반올림
+        Math.ceil() :: 올림  
+        */
+        return console.log((answer = Math.ceil(doz)));
+      };
+      pencil(25);
+      pencil(178);
+    </script>
+  </body>
+</html>

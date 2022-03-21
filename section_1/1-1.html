@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1-1문 - 세 수중 최소값</title>
+  </head>
+  <body>
+    <script>
+      /*
+      100이하의 자연수 A,B,C를 입력받아 세 수 중 가장 작은 값을 출력하는
+      프로그램을 작성 하세요 (정렬을 사용하면 안됩니다.)
+
+      return console.log(Math.min(a, b, c));
+       */
+
+      const minNum = (a, b, c) => {
+        let answer;
+        if (a < b) answer = a;
+        else answer = b;
+        if (c < answer) answer = c;
+
+        console.log(answer);
+      };
+
+      minNum(6, 5, 11);
+      minNum(6, 5, 2);
+    </script>
+  </body>
+</html>

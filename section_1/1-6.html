@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1-6문제 홀수</title>
+  </head>
+  <body>
+    <!--        
+        arr.map((i) => {
+          if (i % 2) {
+            sun += i;
+            if (i < min) min = i;
+          }
+        });
+
+        console.log(sun, min);
+       -->
+    <script>
+      const odd = (arr) => {
+        let answer = [];
+        let sun = 0;
+        let min = 1000;
+
+        for (i of arr) {
+          if (i % 2) {
+            sun += i;
+            if (i < min) min = i;
+          }
+        }
+
+        answer.push(sun);
+        answer.push(min);
+
+        return answer;
+      };
+      arr = [12, 77, 38, 41, 53, 92, 85];
+      console.log(odd(arr));
+    </script>
+  </body>
+</html>
