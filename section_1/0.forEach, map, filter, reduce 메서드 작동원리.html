@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>forEach, map, filter, reduce 메서드 작동원리</title>
+  </head>
+  <body>
+    <script>
+      //forEach, map, filter, reduce => 고차함수 (자신의 매개변수에 함수값을 전달받는다)
+
+      /* 1. forEach
+      forEach() 메서드는 배열에 활용이 가능한 메서드로, 
+      파라미터로 주어진 함수를 배열 요소 각각에 대해 실행하는 메서드이다.
+      map() 메서드와 거의 비슷하지만 차이점은 따로 return 하는 값이 없다는 점이다. */
+      a = [10, 11, 12, 13, 14, 15];
+      a.forEach(
+        function (현재요소, 인덱스, 배열) {
+          console.log(현재요소, 인덱스, 배열, this);
+        },
+        [1, 2]
+      );
+
+      /*
+      [결과값]
+      10 0 (2) [10, 11, 12, 13, 14, 15] [1, 2]
+      11 1 (2) [10, 11, 12, 13, 14, 15] [1, 2]
+      12 2 (2) [10, 11, 12, 13, 14, 15] [1, 2]
+      13 3 (2) [10, 11, 12, 13, 14, 15] [1, 2]
+      14 4 (2) [10, 11, 12, 13, 14, 15] [1, 2]
+      15 5 (2) [10, 11, 12, 13, 14, 15] [1, 2]
+      */
+
+      /* ----------------------------------------------------------------------- */
+
+      /* 2. map 
+      map() 메서드는 배열 내의 모든 요소 각각에 대하여 
+      주어진 함수를 호출한 결과를 모아 새로운 배열을 반환하는 메서드이다.
+      return 되는 결과에 따라 새로운 배열을 만들어낸다는 것이다.
+       */
+      b = [10, 11, 12, 13, 14, 15];
+      let answer_b = b.map(
+        (현재요소, 인덱스, 배열) => {
+          return 현재요소 * 현재요소;
+        },
+        [1, 2]
+      );
+
+      console.log(answer_b);
+
+      /*
+      [결과값]
+      (6) [100, 121, 144, 169, 196, 225]
+      0 : 100
+      1 : 121
+      2 : 144
+      3 : 169
+      4 : 196
+      5 : 225
+      */
+
+      let answer_b1 = b.map(
+        (현재요소, 인덱스, 배열) => {
+          if (현재요소 % 2 === 0) return 현재요소;
+        },
+        [1, 2]
+      );
+
+      console.log(answer_b1);
+
+      /*
+      [결과값] => 원본 배열과 똑같은 배열의 길이를 return
+      (6) [10, undefined, 12, undefined, 14, undefined]
+      0 : 10
+      1 : undefined
+      2 : 12
+      3 : undefined
+      4 : 14
+      5 : undefined
+      */
+
+      /* ----------------------------------------------------------------------- */
+
+      /*  3. filter
+      filter 메서드는 조건을 주고 해당 조건이 참인 요소를 모아 새로운 배열로 반환하는 메서드이다.
+      배열에서 원하는 데이터만 추출 하고 싶을 때 자주 사용하는 사용성이 좋은 메서드이다. 
+      또한 filter는 중복값을 제거해주지 않는다. 따라서 중복값이 나올 수 있다.
+
+      arr.filter(callback(element[, index[, array]])[, thisArg])
+      callback : 각 요소에 대한 조건값
+      element : 처리할 현재 요소
+      index : 현재 인덱스
+      array : filter를 호출한 배열
+      thisArg : callback을 생행 할 때 this로 사용하는 값
+       */
+      c = [10, 11, 12, 13, 14, 15];
+      let answer_c = c.filter(
+        (요소, 인덱스) => {
+          if (요소 % 2 === 0) return 요소;
+        },
+        [1, 2]
+      );
+
+      console.log(answer_c);
+
+      /*
+      [결과값] => 원본배열의 요소들 중에서 true값 return
+      (3) [10, 12, 14]
+      0 : 10
+      1 : 12
+      2 : 14
+      */
+
+      let answer_c1 = c.filter(
+        (요소, 인덱스) => {
+          if (요소 % 2 === 1) return 요소;
+        },
+        [1, 2]
+      );
+
+      console.log(answer_c1);
+
+      /*
+      [결과값]
+      (3) [11, 13, 15]
+      0 : 11
+      1 : 13
+      2 : 15
+      */
+
+      /* ----------------------------------------------------------------------- */
+
+      /* 4. reduce 
+      reduce())는 배열의 각 요소를 순회하며 
+      callback함수의 실행 값을 누적하여 하나의 결과값을 반환 합니다.
+
+      accumulator - accumulator는 callback함수의 반환값을 누적합니다.
+      currentValue - 배열의 현재 요소
+      index(Optional) - 배열의 현재 요소의 인덱스
+      array(Optional) - 호출한 배열
+      */
+      d = [10, 11, 12, 13, 14, 15];
+      let answer_d = d.reduce((누적값, 값) => 누적값 + 값);
+
+      console.log(answer_d);
+
+      /*
+      [결과값]  75
+      */
+    </script>
+  </body>
+</html>
