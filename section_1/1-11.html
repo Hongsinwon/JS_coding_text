@@ -12,7 +12,11 @@
         let answer = 0;
 
         for (const i of s) {
-          if (i == i.toUpperCase()) answer++;
+          //아스키넘버 -대문자 65(A) ~ 90(Z) 소문자 97(a) ~ 122(z)
+          let num = i.charCodeAt();
+          if (num >= 65 && num <= 90) answer++;
+
+          //if (i == i.toUpperCase()) answer++;
         }
         return answer;
       }

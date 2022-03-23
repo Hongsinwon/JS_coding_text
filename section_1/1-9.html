@@ -9,7 +9,13 @@
   <body>
     <script>
       function solution(s) {
-        let answer = s.replace(/A/g, "#");
+        //정규식 표현 g -> 전체
+        //let answer = s.replace(/A/g, "#");
+        let answer = "";
+        for (const i of s) {
+          if (x === "A") answer += "#";
+          else answer += i;
+        }
 
         return answer;
       }

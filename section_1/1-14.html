@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1-14문제 가장 긴 문자열</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        /* 인강
+        let answer;
+        let max = Number.MIN_SAFE_INTEGER <- 가장작은숫자
+        for (const i of s) {
+          console.log(i.length, answer.length);
+          if (max < i.length) {
+            max=i.length;
+            answer = i
+          }
+        } */
+
+        let answer = "";
+        for (const i of s) {
+          console.log(i.length, answer.length);
+          if (answer.length < i.length) answer = i;
+        }
+
+        return answer;
+      }
+      let str = ["teacher", "time", "student", "beautiful", "good"];
+      console.log(solution(str));
+    </script>
+  </body>
+</html>

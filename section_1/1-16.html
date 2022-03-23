@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1-16문제 중복문자제거</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = "";
+        for (let i = 0; i < s.length; i++) {
+          console.log(s[i], i, s.indexOf(s[i]));
+          //indexOf(문자)메소드는 처음으로 문자가 발견되는 인덱스이기 때문에,
+          //이후에 같은 문자가 발견되더라도 처음 그 문자가 발견된 인덱스를 리턴한다.
+          if (s.indexOf(s[i]) === i) {
+            answer += s[i];
+          }
+        }
+
+        return answer;
+      }
+      console.log(solution("ksekkset"));
+    </script>
+  </body>
+</html>

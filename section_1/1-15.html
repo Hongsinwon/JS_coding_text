@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1-15문제 가운데 문자 출력</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer;
+        let mid = Math.floor(s.length / 2); // 홀수일때 가운데
+
+        if (s.length % 2 == 1) {
+          //홀수면 가운데
+          answer = s.substring(mid, mid + 1); // (2,3) 3번인덱스 전까지, 2번만 출력
+          // answer = s.substr(mid, 1);
+        } else {
+          //짝수면 가운데 문자 2개
+          answer = s.substring(mid - 1, mid + 1); // (1, 3) 3번 인덱스 전까지 1,2번 출력
+          // answer = s.substr(mid-1, 2);
+        }
+        return answer;
+      }
+      console.log(solution("study"));
+      console.log(solution("good"));
+    </script>
+  </body>
+</html>

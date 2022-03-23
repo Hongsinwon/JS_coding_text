@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1-17문제 중복단어제거</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = "";
+
+        /*answer =  s.filter((e, i) => {
+          if (s.indexOf(v)) === i) return true;
+          //return s.indexOf(v)) === i;
+        }); */
+
+        s.filter((e, i) => {
+          if (s.indexOf(s[i]) === i) {
+            answer += s[i] + "\n";
+          }
+          //console.log(s[i], e, s.indexOf(s[i]));
+        });
+
+        return answer;
+      }
+      let str = ["good", "time", "good", "time", "student"];
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
